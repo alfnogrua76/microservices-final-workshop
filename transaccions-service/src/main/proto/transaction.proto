@@ -1,0 +1,33 @@
+syntax = "proto3";
+
+option java_package = "bancolombia.com.grpc";
+option java_multiple_files = true;
+option java_outer_classname = "TransactionProto";
+
+message TransactionRequest {
+  int64  id = 1;
+  string tid = 2;
+  string type = 3;
+  string pagador = 4;
+  int32 accountP = 5;
+  float monto = 6;
+  string beneficiary = 7;
+  int32 accountB = 78;
+  string data = 9;
+}
+
+message TransactionResponse {
+    int64 id = 1;
+    string tid = 2;
+    string type = 3;
+    string pagador = 4;
+    int32 accountP = 5;
+    float monto = 6;
+    string beneficiary = 7;
+    int32 accountB = 8;
+    string data = 9;
+}
+
+service TransactionService {
+  rpc crearDepositoOtrosBanco(TransactionRequest) returns (TransactionResponse);
+}
